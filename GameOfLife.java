@@ -7,6 +7,7 @@ class GameOfLife implements ActionListener
 {		
 	JFrame frame = new JFrame("Porta100");
 	JButton botao1 = new JButton("cavar as gerações");
+	Board board;
 
 	public static void main(String [] args)
 	{								
@@ -14,7 +15,7 @@ class GameOfLife implements ActionListener
 		gui.go();					
 	}											
 	public void go(){			
-		Board board = new Board();
+		board = new Board();
 
 		Square square1 = new Square();
 		Square square2 = new Square();					
@@ -27,7 +28,12 @@ class GameOfLife implements ActionListener
 		square2.setAlive(true);	
 
 		square3.setXY(2, 0);
-		square3.setAlive(true);								
+		square3.setAlive(true);	
+
+		board.addSquare(square1);
+		board.addSquare(square2);							
+		board.addSquare(square3);							
+
 
 		MyDrawPanel drawPanel = new MyDrawPanel();
 		frame.setSize(1920,1080);
@@ -46,27 +52,8 @@ class GameOfLife implements ActionListener
 		public void paintComponent(Graphics g)
 		{	
 					
+			board.drawBoard(g);
 
-			g.fillRect(50,50,100,100);
-			g.setColor(Color.YELLOW);
-			g.fillRect(160,50,100,100);
-			g.setColor(Color.YELLOW);
-
-			g.fillRect(50,160,100,100);
-			g.setColor(Color.YELLOW);
-			g.fillRect(160,160,100,100);
-			g.setColor(Color.YELLOW);
-
-			g.fillRect(260,260,100,100);
-			g.setColor(Color.YELLOW);
-			g.fillRect(370,260,100,100);
-			g.setColor(Color.YELLOW);
-
-			g.fillRect(260,370,100,100);
-			g.setColor(Color.YELLOW);
-			g.fillRect(370,370,100,100);
-			g.setColor(Color.YELLOW);
-	
 		}
 	}
 }
