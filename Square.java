@@ -33,7 +33,7 @@ class Square{
 				}
 			}
 		}
-		return countNears;
+		return countNears-1;
 
 		// if(board.hasSquare(x-1, y) || board.hasSquare(x, y-1) || board.hasSquare(x-1, y-1) || board.hasSquare(x+1, y) || board.hasSquare(x, y+1) || board.hasSquare(x+1, y+1) || board.hasSquare(x+1, y-1) || board.hasSquare(x-1, y+1))
 	}
