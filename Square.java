@@ -23,4 +23,18 @@ class Square{
 	boolean alive(){
 		return alive;
 	}
+	int nearSquares(Board board){
+		int countNears = 0;
+
+		for(int i = x-1; i <= x + 1; i++){
+			for(int j = y-1; j <= y +1; j++){
+				if(board.hasSquare(i,j)){
+					countNears++;
+				}
+			}
+		}
+		return countNears;
+
+		// if(board.hasSquare(x-1, y) || board.hasSquare(x, y-1) || board.hasSquare(x-1, y-1) || board.hasSquare(x+1, y) || board.hasSquare(x, y+1) || board.hasSquare(x+1, y+1) || board.hasSquare(x+1, y-1) || board.hasSquare(x-1, y+1))
+	}
 }
