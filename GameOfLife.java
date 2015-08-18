@@ -8,6 +8,7 @@ class GameOfLife implements ActionListener
 	JFrame frame = new JFrame("Porta100");
 	JButton botao1 = new JButton("cavar as gerações");
 	Board board;
+	Serializer seri = new Serializer();
 
 	public static void main(String [] args)
 	{								
@@ -58,8 +59,10 @@ class GameOfLife implements ActionListener
 		board.addSquare(square5);							
 		board.addSquare(square6);
 		board.addSquare(square7);
-		board.addSquare(square8);							
+		board.addSquare(square8);
 
+		//seri.serializeBoard(board);
+		//seri.deserializeBoard(board);		
 
 		MyDrawPanel drawPanel = new MyDrawPanel();
 		frame.setSize(800,800);
@@ -70,18 +73,17 @@ class GameOfLife implements ActionListener
 	}			
 	public 	void actionPerformed(ActionEvent e)
 	{
-		board.counterGeracoes++;		
-				
+		board.counterGeracoes++;
 		frame.repaint();
 	}	
 
 	class MyDrawPanel extends JPanel
 	{
 		public void paintComponent(Graphics g)
-		{	
-					
+		{			
 			board.drawBoard(g);
-
+			seri.serializeBoard(board);	
+			seri.deserializeBoard(board);
 		}
 	}
 }

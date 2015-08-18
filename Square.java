@@ -1,4 +1,5 @@
-class Square{
+import java.io.Serializable;
+class Square implements Serializable{
 	private int x;
 	private int y;
 	private boolean alive;
@@ -18,8 +19,6 @@ class Square{
 	}
 
 	void setAlive(boolean aliveOrDead){
-		System.out.println("matando ou morrendo");
-		System.out.println(aliveOrDead);
 		alive = aliveOrDead;
 	}
 
